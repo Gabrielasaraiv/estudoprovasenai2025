@@ -29,7 +29,11 @@ class Login extends Component
     public function login(){
         $this->validate();
 
-        if(Auth::attempt(['email'=> $this->email, 'password'=> $this->password])){
+        if(Auth::attempt([
+            'email'=> $this->email, 
+            'password'=> $this->password
+            ]))
+            {
             session()->regenerate();
             return redirect()->route('dashboard');
         }
